@@ -3,26 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>INFERNAL KISS — Elite Brand Identity</title>
-    
-    <!-- Google Fonts yang memiliki karakteristik serupa Trajan Pro (Cinzel & Cormorant) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
-    
+    <title>INFERNAL KISS</title>
     <style>
-        :root {
-            --primary-font: 'Cinzel', serif; /* Karakter kuat seperti Trajan */
-            --secondary-font: 'Cormorant Garamond', serif; /* Elegan dan rapi */
-            --accent: #ffffff;
-            --bg: #000000;
-        }
-
         body {
-            background-color: var(--bg);
-            color: var(--accent);
-            font-family: var(--secondary-font);
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            background: #000;
+            color: #fff;
+            font-family: serif; /* Silakan ganti dengan Trajan Pro nanti */
+            overflow-x: hidden;
         }
 
         .bg-video {
@@ -34,93 +22,79 @@
             opacity: 0.5;
         }
 
-        /* Navigasi Baris Tiga (Hamburger) */
         header {
-            padding: 30px 50px;
+            padding: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: var(--primary-font);
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 3px;
+            font-size: 1.5rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
-        /* Menu Sederhana & Rapi */
-        .nav-links {
+        /* Ikon Baris Tiga */
+        .menu-icon {
+            cursor: pointer;
             display: flex;
-            gap: 40px;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
         }
 
-        .nav-links a {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-family: var(--primary-font);
+        .menu-icon span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: #fff;
             transition: 0.3s;
-            opacity: 0.7;
         }
 
-        .nav-links a:hover { opacity: 1; }
-
-        /* Main Section */
-        .content {
-            height: 70vh;
+        /* Menu Samping (Overlay) */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Sembunyi di kanan */
+            width: 300px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-left: 10%;
+            align-items: center;
+            transition: 0.5s;
+            border-left: 1px solid rgba(255,255,255,0.1);
         }
 
-        .content h1 {
-            font-family: var(--primary-font);
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: 10px;
-            text-transform: uppercase;
+        .nav-overlay.active {
+            right: 0; /* Muncul saat aktif */
         }
 
-        .content p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            font-style: italic;
-            opacity: 0.8;
-        }
-
-        .cta-box {
-            margin-top: 30px;
-        }
-
-        .btn {
-            border: 1px solid var(--accent);
-            padding: 12px 35px;
-            color: var(--accent);
+        .nav-overlay a {
+            color: #fff;
             text-decoration: none;
-            font-family: var(--primary-font);
-            font-size: 0.7rem;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            text-transform: uppercase;
             letter-spacing: 3px;
-            transition: 0.4s;
+            opacity: 0.7;
+            transition: 0.3s;
         }
 
-        .btn:hover {
-            background: var(--accent);
-            color: var(--bg);
+        .nav-overlay a:hover { opacity: 1; }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
         }
 
-        .footer-payment {
-            position: fixed;
-            bottom: 40px;
-            left: 50px;
-            font-family: var(--primary-font);
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-        }
+        h1 { font-size: 4rem; letter-spacing: 15px; text-transform: uppercase; margin: 0; }
     </style>
 </head>
 <body>
@@ -131,25 +105,31 @@
 
     <header>
         <div class="logo">Infernal Kiss</div>
-        <nav class="nav-links">
-            <a href="/">Home</a>
-            <a href="https://99designs.com/profiles/infernalkiss">1-to-1 Project</a>
-            <a href="https://gumroad.com/infernalkiss">Digital Assets</a>
-            <a href="mailto:email-akang@example.com">Contact</a>
-        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
 
-    <div class="content">
+    <nav class="nav-overlay" id="navOverlay">
+        <a href="/" onclick="toggleMenu()">Home</a>
+        <a href="https://99designs.com/profiles/infernalkiss" target="_blank">1-to-1 Project</a>
+        <a href="https://gumroad.com/infernalkiss" target="_blank">Digital Assets</a>
+        <a href="mailto:your-email@example.com">Contact</a>
+    </nav>
+
+    <div class="hero">
         <h1>Apex Predators</h1>
-        <p>Premium Mascot Logo Bundle. Designed for high-contrast brand identity.</p>
-        <div class="cta-box">
-            <a href="https://gumroad.com/l/apex-predators" class="btn">PURCHASE VIA PAYPAL</a>
-        </div>
+        <p style="letter-spacing: 5px; opacity: 0.6;">PREMIUM MASCOT BUNDLE</p>
     </div>
 
-    <div class="footer-payment">
-        ACCEPTED: PAYPAL ONLY | EST. 2010
-    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navOverlay');
+            menu.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
