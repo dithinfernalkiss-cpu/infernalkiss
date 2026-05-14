@@ -5,139 +5,126 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>INFERNAL KISS — Elite Brand Identity</title>
     
-    <!-- Google Fonts: Gothic Style -->
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts yang memiliki karakteristik serupa Trajan Pro (Cinzel & Cormorant) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --gothic-font: 'UnifrakturMaguntia', cursive;
-            --clean-font: 'Space Mono', monospace;
+            --primary-font: 'Cinzel', serif; /* Karakter kuat seperti Trajan */
+            --secondary-font: 'Cormorant Garamond', serif; /* Elegan dan rapi */
             --accent: #ffffff;
-            --bg: #080808;
+            --bg: #000000;
         }
 
         body {
-            background: var(--bg);
+            background-color: var(--bg);
             color: var(--accent);
-            font-family: var(--clean-font);
+            font-family: var(--secondary-font);
             margin: 0;
-            overflow-x: hidden;
+            padding: 0;
+            line-height: 1.6;
         }
 
-        /* Video Background */
         .bg-video {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.6;
-            filter: grayscale(100%) contrast(1.2);
+            opacity: 0.5;
         }
 
-        /* Gothic Header */
+        /* Navigasi Baris Tiga (Hamburger) */
         header {
-            padding: 2rem;
+            padding: 30px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .logo {
-            font-family: var(--gothic-font);
-            font-size: 2.5rem;
-            letter-spacing: 2px;
+            font-family: var(--primary-font);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        /* Nav Baris Tiga (Hamburger) Custom */
-        .nav-container {
-            cursor: pointer;
-        }
-
+        /* Menu Sederhana & Rapi */
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 40px;
         }
 
         .nav-links a {
             color: var(--accent);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            font-family: var(--primary-font);
             transition: 0.3s;
+            opacity: 0.7;
         }
 
-        .nav-links a:hover {
-            color: #888;
-        }
+        .nav-links a:hover { opacity: 1; }
 
         /* Main Section */
-        main {
-            height: 80vh;
+        .content {
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
+            padding-left: 10%;
         }
 
-        .hero-title {
-            font-family: var(--gothic-font);
-            font-size: 5rem;
-            margin-bottom: 0;
+        .content h1 {
+            font-family: var(--primary-font);
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 10px;
+            text-transform: uppercase;
         }
 
-        /* Bundle Display (APEX PREDATORS) */
-        .bundle-preview {
-            margin-top: 3rem;
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(0,0,0,0.5);
-            max-width: 500px;
+        .content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            font-style: italic;
+            opacity: 0.8;
         }
 
-        .cta-button {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2.5rem;
+        .cta-box {
+            margin-top: 30px;
+        }
+
+        .btn {
             border: 1px solid var(--accent);
+            padding: 12px 35px;
             color: var(--accent);
             text-decoration: none;
-            transition: 0.3s;
-            font-weight: bold;
+            font-family: var(--primary-font);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            transition: 0.4s;
         }
 
-        .cta-button:hover {
+        .btn:hover {
             background: var(--accent);
             color: var(--bg);
         }
 
-        footer {
+        .footer-payment {
             position: fixed;
-            bottom: 2rem;
-            width: 100%;
-            text-align: center;
-            font-size: 0.8rem;
-            opacity: 0.5;
-        }
-
-        .payment-info {
-            margin-top: 1rem;
-            font-size: 0.7rem;
+            bottom: 40px;
+            left: 50px;
+            font-family: var(--primary-font);
+            font-size: 0.6rem;
             letter-spacing: 2px;
-        }
-
-        @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; }
-            .nav-links { display: none; } /* Akang bisa aktifkan JS untuk menu baris tiga nanti */
         }
     </style>
 </head>
 <body>
 
-    <!-- Video Background Realistic Silver Skull -->
     <video class="bg-video" autoPlay muted loop playsInline>
         <source src="/assets/skull-loop.mp4" type="video/mp4">
     </video>
@@ -152,22 +139,17 @@
         </nav>
     </header>
 
-    <main>
-        <h1 class="hero-title">Apex Predators</h1>
-        <p>Elite Mascot Logo Bundle — Now Available</p>
-        
-        <div class="bundle-preview">
-            <h3>Featured Bundle</h3>
-            <p>High-contrast, aggressive animal subjects for international brands.</p>
-            <a href="https://gumroad.com/l/apex-predators" class="cta-button">GET THE BUNDLE</a>
+    <div class="content">
+        <h1>Apex Predators</h1>
+        <p>Premium Mascot Logo Bundle. Designed for high-contrast brand identity.</p>
+        <div class="cta-box">
+            <a href="https://gumroad.com/l/apex-predators" class="btn">PURCHASE VIA PAYPAL</a>
         </div>
+    </div>
 
-        <div class="payment-info">ACCEPTED VIA: PAYPAL ONLY</div>
-    </main>
-
-    <footer>
-        EST. 2010 — INFERNAL KISS GLOBAL STUDIO
-    </footer>
+    <div class="footer-payment">
+        ACCEPTED: PAYPAL ONLY | EST. 2010
+    </div>
 
 </body>
 </html>
