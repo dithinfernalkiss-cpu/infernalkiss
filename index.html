@@ -3,23 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>INFERNAL KISS</title>
+    <title>INFERNAL KISS — Official Studio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         body {
             margin: 0;
             background: #000;
             color: #fff;
-            font-family: serif; /* @font-face {
-    font-family: 'TrajanPro';
-    src: url('assets/trajan-pro.woff2') format('woff2');
-}
-
-.logo, h1, .nav-links a {
-    font-family: 'Cinzel-regular', serif;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-} */
-            overflow-x: hidden;
+            font-family: 'Cinzel', serif;
+            overflow: hidden;
         }
 
         .bg-video {
@@ -31,19 +25,7 @@
             opacity: 0.5;
         }
 
-        header {
-            padding: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-/* HEADER: Ikon 3 Baris & Logo di Sisi Kiri */
+        /* HEADER: Ikon 3 Baris & Logo di Sisi Kiri */
         header {
             padding: 40px;
             display: flex;
@@ -145,22 +127,21 @@
         <div class="logo">Infernal Kiss</div>
     </header>
 
-    <nav class="nav-overlay" id="navOverlay">
+    <nav class="nav-sidebar" id="sidebar">
         <a href="/" onclick="toggleMenu()">Home</a>
-        <a href="https://infernalkiss.carrd.co" target="_blank">1-to-1 Project</a>
+        <a href="https://99designs.com/profiles/infernalkiss" target="_blank">1-to-1 Project</a>
         <a href="https://gumroad.com/infernalkiss" target="_blank">Digital Assets</a>
-        <a href="mailto:dith.infernal.kiss@gmail.com">Contact</a>
+        <a href="mailto:email-akang@domain.com">Contact</a>
     </nav>
 
     <div class="hero">
-        <h1>Headline and Bio</h1>
-        <p style="letter-spacing: 5px; opacity: 0.6;">Premium Mascot & Brand Identity</p>
+        <h1>Apex Predators</h1>
     </div>
 
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('navOverlay');
-            menu.classList.toggle('active');
+            // Memberikan perintah pada sidebar untuk muncul/sembunyi
+            document.getElementById('sidebar').classList.toggle('active');
         }
     </script>
 
