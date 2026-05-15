@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>INFERNAL KISS — Official Studio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     
     <style>
+        :root {
+            --primary-font: 'Cinzel', serif;
+            --secondary-font: 'Inter', sans-serif;
+            --accent: #ffffff;
+        }
+
         body {
             margin: 0;
             background: #000;
-            color: #fff;
-            font-family: 'Cinzel', serif;
-            overflow: hidden;
+            color: var(--accent);
+            font-family: var(--secondary-font);
+            overflow-x: hidden;
         }
 
         .bg-video {
@@ -22,128 +28,111 @@
             width: 100%; height: 100%;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
-        /* HEADER: Ikon 3 Baris & Logo di Sisi Kiri */
+        /* HEADER */
         header {
-            padding: 40px;
+            padding: 30px 50px;
             display: flex;
             align-items: center;
-            position: relative;
+            position: fixed;
+            top: 0; width: 100%;
             z-index: 1002;
+            box-sizing: border-box;
         }
 
-        /* Tombol 3 Baris (Pemicu) */
         .menu-trigger {
             cursor: pointer;
             display: flex;
             flex-direction: column;
             gap: 6px;
-            margin-right: 30px; /* Jarak antara ikon dan logo */
+            margin-right: 25px;
         }
 
         .menu-trigger span {
-            display: block;
-            width: 28px;
-            height: 1px;
-            background: #fff;
-            transition: 0.3s;
+            display: block; width: 25px; height: 1px; background: #fff;
         }
 
-        .logo {
-            font-size: 1.4rem;
-            letter-spacing: 4px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 35px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: var(--primary-font);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 700;
         }
 
-        /* MENU SIDEBAR: Tersembunyi di Kiri (-100%) */
+        /* SIDEBAR NAV */
         .nav-sidebar {
             position: fixed;
-            top: 0;
-            left: -100%; /* Sembunyi total */
-            width: 320px;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.98);
+            top: 0; left: -100%;
+            width: 300px; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
             z-index: 1001;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding-left: 50px;
-            transition: transform 0.5s cubic-bezier(0.77,0,0.175,1);
+            transition: 0.5s cubic-bezier(0.77,0,0.175,1);
             border-right: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Saat Aktif: Menu Bergeser Masuk */
-        .nav-sidebar.active {
-            transform: translateX(100%);
-        }
+        .nav-sidebar.active { transform: translateX(100%); }
 
         .nav-sidebar a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.1rem;
-            margin: 18px 0;
+            font-size: 0.9rem;
+            margin: 15px 0;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+            font-family: var(--primary-font);
             opacity: 0.6;
             transition: 0.3s;
         }
 
-        .nav-sidebar a:hover {
-            opacity: 1;
-            padding-left: 10px;
-        }
+        .nav-sidebar a:hover { opacity: 1; padding-left: 10px; }
 
-        /* Area Hero */
+        /* HERO AREA - Headline & Bio */
         .hero {
-            height: 70vh;
+            height: 100vh;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding-left: 10%;
+            text-align: center;
+            padding: 0 20px;
         }
 
-        h1 {
-            font-size: 5rem;
-            letter-spacing: 15px;
+        /* Headline Diperkecil */
+        .hero h1 {
+            font-family: var(--primary-font);
+            font-size: 2.8rem; /* Ukuran lebih kecil sesuai permintaan */
+            letter-spacing: 12px;
             text-transform: uppercase;
             margin: 0;
         }
-    </style>
-</head>
-<body>
 
-    <video class="bg-video" autoPlay muted loop playsInline>
-        <source src="/assets/skull-loop.mp4" type="video/mp4">
-    </video>
-
-    <header>
-        <div class="menu-trigger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="logo">Infernal Kiss</div>
-    </header>
-
-    <nav class="nav-sidebar" id="sidebar">
-        <a href="/" onclick="toggleMenu()">Home</a>
-        <a href="https://99designs.com/profiles/infernalkiss" target="_blank">1-to-1 Project</a>
-        <a href="https://gumroad.com/infernalkiss" target="_blank">Digital Assets</a>
-        <a href="mailto:email-akang@domain.com">Contact</a>
-    </nav>
-
-    <div class="hero">
-        <h1>Apex Predators</h1>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            // Memberikan perintah pada sidebar untuk muncul/sembunyi
-            document.getElementById('sidebar').classList.toggle('active');
+        /* Bio Section */
+        .hero .bio {
+            max-width: 500px;
+            margin: 20px 0;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            line-height: 1.8;
+            opacity: 0.7;
+            text-transform: uppercase;
         }
-    </script>
 
-</body>
-</html>
+        /* Tombol
