@@ -22,6 +22,7 @@
             overflow-x: hidden;
         }
 
+        /* Latar Belakang Video */
         .bg-video {
             position: fixed;
             top: 0; left: 0;
@@ -31,7 +32,7 @@
             opacity: 0.4;
         }
 
-        /* HEADER */
+        /* HEADER: Ikon 3 Baris & Logo di Sisi Kiri */
         header {
             padding: 30px 50px;
             display: flex;
@@ -73,12 +74,12 @@
             font-weight: 700;
         }
 
-        /* SIDEBAR NAV */
+        /* SIDEBAR NAV: Tersembunyi di Kiri */
         .nav-sidebar {
             position: fixed;
             top: 0; left: -100%;
             width: 300px; height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.98);
             z-index: 1001;
             display: flex;
             flex-direction: column;
@@ -104,7 +105,7 @@
 
         .nav-sidebar a:hover { opacity: 1; padding-left: 10px; }
 
-        /* HERO AREA - Headline & Bio */
+        /* AREA UTAMA: Headline & Bio */
         .hero {
             height: 100vh;
             display: flex;
@@ -115,16 +116,14 @@
             padding: 0 20px;
         }
 
-        /* Headline Diperkecil */
         .hero h1 {
             font-family: var(--primary-font);
-            font-size: 2.8rem; /* Ukuran lebih kecil sesuai permintaan */
+            font-size: 2.8rem;
             letter-spacing: 12px;
             text-transform: uppercase;
             margin: 0;
         }
 
-        /* Bio Section */
         .hero .bio {
             max-width: 500px;
             margin: 20px 0;
@@ -135,4 +134,77 @@
             text-transform: uppercase;
         }
 
-        /* Tombol
+        .hero .btn-link {
+            margin-top: 20px;
+            padding: 12px 40px;
+            border: 1px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: var(--primary-font);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: 0.4s;
+        }
+
+        .hero .btn-link:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* BAGIAN BAWAH (SUBSCRIBE) */
+        .subscribe-section {
+            padding: 120px 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .subscribe-section h2 {
+            font-family: var(--primary-font);
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .subscribe-section p {
+            max-width: 550px;
+            margin: 15px auto;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        .email-form {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .email-form input {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 12px 15px;
+            color: #fff;
+            width: 220px;
+            font-size: 0.8rem;
+        }
+
+        .email-form button {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 0 25px;
+            text-transform: uppercase;
+            font-family: var(--primary-font);
+            font-size: 0.7rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* FOOTER & COPYRIGHT */
+        footer {
+            padding: 60px;
+            text-align: center;
+            border-top: 1
