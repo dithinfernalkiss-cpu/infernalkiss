@@ -43,31 +43,45 @@
             letter-spacing: 4px;
             text-transform: uppercase;
         }
+/* HEADER: Ikon 3 Baris & Logo di Sisi Kiri */
+        header {
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1002;
+        }
 
-        /* Ikon Baris Tiga */
-        .menu-icon {
+        /* Tombol 3 Baris (Pemicu) */
+        .menu-trigger {
             cursor: pointer;
             display: flex;
             flex-direction: column;
             gap: 6px;
-            z-index: 1001;
+            margin-right: 30px; /* Jarak antara ikon dan logo */
         }
 
-        .menu-icon span {
+        .menu-trigger span {
             display: block;
-            width: 30px;
-            height: 2px;
+            width: 28px;
+            height: 1px;
             background: #fff;
             transition: 0.3s;
         }
 
-        /* MENU SIDEBAR (Sembunyi di luar layar KIRI) */
-        .side-menu {
+        .logo {
+            font-size: 1.4rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* MENU SIDEBAR: Tersembunyi di Kiri (-100%) */
+        .nav-sidebar {
             position: fixed;
             top: 0;
-            left: -100%; /* Sembunyi di sisi kiri */
-            width: 100%;
-            max-width: 350px;
+            left: -100%; /* Sembunyi total */
+            width: 320px;
             height: 100%;
             background: rgba(0, 0, 0, 0.98);
             z-index: 1001;
@@ -79,32 +93,41 @@
             border-right: 1px solid rgba(255,255,255,0.1);
         }
 
-        .nav-overlay.active {
-            right: 0; /* Muncul saat aktif */
+        /* Saat Aktif: Menu Bergeser Masuk */
+        .nav-sidebar.active {
+            transform: translateX(100%);
         }
 
-        .nav-overlay a {
+        .nav-sidebar a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.2rem;
-            margin: 20px 0;
+            font-size: 1.1rem;
+            margin: 18px 0;
             text-transform: uppercase;
             letter-spacing: 3px;
-            opacity: 0.7;
+            opacity: 0.6;
             transition: 0.3s;
         }
 
-        .nav-overlay a:hover { opacity: 1; }
-
-        .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 50px;
+        .nav-sidebar a:hover {
+            opacity: 1;
+            padding-left: 10px;
         }
 
-        h1 { font-size: 4rem; letter-spacing: 15px; text-transform: uppercase; margin: 0; }
+        /* Area Hero */
+        .hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            padding-left: 10%;
+        }
+
+        h1 {
+            font-size: 5rem;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -114,12 +137,12 @@
     </video>
 
     <header>
-        <div class="logo">Infernal Kiss</div>
-        <div class="menu-icon" onclick="toggleMenu()">
+        <div class="menu-trigger" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
+        <div class="logo">Infernal Kiss</div>
     </header>
 
     <nav class="nav-overlay" id="navOverlay">
